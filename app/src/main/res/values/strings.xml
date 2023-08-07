@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Liste</string>
+    <string name="Add">Ekle</string>
+    <string name="Priority">Öncelik</string>
+    <string name="Price_range">Fiyat</string>
+    <string name="explanation">Açıklama</string>
+    <string name="sort_priority">Sırala: Önem</string>
+    <string name="sort_price">Sırala: Fiyat</string>
+    <string name="save">KAYDET</string>
+</resources>
