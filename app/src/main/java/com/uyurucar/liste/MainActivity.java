@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         binding.RcycView.setAdapter(adapter);
         binding.RcycView.setLayoutManager(new LinearLayoutManager(this));
         setContentView(view);
+
     }
     public void itemDeleted(Item item)
     {

@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
+import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,13 +43,13 @@ public class RcycAdapter extends RecyclerView.Adapter<RcycAdapter.RcycHolder>{
         String priority = String.valueOf(list.get(position).getPriority());
         String price = list.get(position).getPrice().toString();
         String explanation = list.get(position).getExplanation();
-
         holder.binding.elementPrice.setText(price);
         holder.binding.elementPriority.setText(priority);
         holder.binding.elementName.setText(explanation);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        Linkify.addLinks(holder.binding.elementName, Linkify.ALL);
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onLongClick(View v) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(ct);
                 alert.setTitle("Delete?");
                 alert.setMessage("You Sure?");
@@ -60,6 +61,7 @@ public class RcycAdapter extends RecyclerView.Adapter<RcycAdapter.RcycHolder>{
                 });
                 alert.setNegativeButton("Hayır", null);
                 alert.show();
+                return false;
             }
         });
     }
