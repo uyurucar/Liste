@@ -40,30 +40,42 @@ public class RcycAdapter extends RecyclerView.Adapter<RcycAdapter.RcycHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull RcycAdapter.RcycHolder holder, int position) {
-        String priority = String.valueOf(list.get(position).getPriority());
-        String price = list.get(position).getPrice().toString();
-        String explanation = list.get(position).getExplanation();
+        //to make titles align with values, sending them like a rcyc item, and re-adjusting index of the 'list' and 'position'
+        if(position == 0 )
+        {
+            holder.binding.elementPrice.setText("FIYAT");
+            holder.binding.elementPriority.setText("pri");
+            holder.binding.elementName.setText("AÇIKLAMA");
+            return;
+        }
+        String priority = String.valueOf(list.get(position-1).getPriority());
+        String price = list.get(position-1).getPrice().toString();
+        String explanation = list.get(position-1).getExplanation();
         holder.binding.elementPrice.setText(price);
         holder.binding.elementPriority.setText(priority);
         holder.binding.elementName.setText(explanation);
         Linkify.addLinks(holder.binding.elementName, Linkify.ALL);
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                AlertDialog.Builder alert = new AlertDialog.Builder(ct);
-                alert.setTitle("Delete?");
-                alert.setMessage("You Sure?");
-                alert.setPositiveButton("Evet", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        DeleteItem(list.get(holder.getAdapterPosition()));
-                    }
-                });
-                alert.setNegativeButton("Hayır", null);
-                alert.show();
-                return false;
-            }
-        });
+        if(position != 0)
+        {
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+
+                    AlertDialog.Builder alert = new AlertDialog.Builder(ct);
+                    alert.setTitle("Delete?");
+                    alert.setMessage("You Sure?");
+                    alert.setPositiveButton("Evet", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            DeleteItem(list.get(holder.getAdapterPosition()-1));
+                        }
+                    });
+                    alert.setNegativeButton("Hayır", null);
+                    alert.show();
+                    return false;
+                }
+            });
+        }
     }
     public void DeleteItem(Item item)
     {
@@ -79,7 +91,7 @@ public class RcycAdapter extends RecyclerView.Adapter<RcycAdapter.RcycHolder>{
     }
     @Override
     public int getItemCount() {
-        return list.size();
+        return list.size()+1;
     }
     public class RcycHolder extends RecyclerView.ViewHolder {
         RcycLayoutBinding binding;

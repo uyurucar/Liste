@@ -4,28 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_marginVertical="1dp"
+    android:layout_marginHorizontal="1dp"
+    android:background="#191818">
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/checkbox_off_background" />
+        app:srcCompat="@android:drawable/ic_notification_overlay" />
 
     <TextView
         android:id="@+id/element_name"
-        android:layout_width="204dp"
-        android:layout_height="83dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="2dp"
         android:gravity="center"
         android:text="sdfdfsfsdfsv sdfsdfsdfsdf sdfsdfsdfs sdfsdfs"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:autoSizeMaxTextSize="20dp"
-        app:autoSizeMinTextSize="8dp"
+        app:autoSizeMinTextSize="12dp"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,27 +40,27 @@
     <TextView
         android:id="@+id/element_priority"
         android:layout_width="39dp"
-        android:layout_height="86dp"
+        android:layout_height="0dp"
         android:layout_marginStart="4dp"
         android:gravity="center"
         android:text="10"
         android:textAlignment="gravity"
         android:textColor="#FF2727"
-        android:textSize="34sp"
+        android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.511" />
 
     <TextView
         android:id="@+id/element_price"
         android:layout_width="104dp"
-        android:layout_height="84dp"
+        android:layout_height="wrap_content"
         android:autoText="false"
         android:gravity="center"
         android:text="VeryHigh"
         android:textAlignment="gravity"
-        android:textColor="#6505FF"
+        android:textColor="#ACC9FB"
         android:textSize="24sp"
         app:autoSizeMaxTextSize="20dp"
         app:autoSizeMinTextSize="10dp"
@@ -65,6 +69,6 @@
         app:layout_constraintEnd_toStartOf="@+id/element_name"
         app:layout_constraintStart_toEndOf="@+id/element_priority"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.459" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
